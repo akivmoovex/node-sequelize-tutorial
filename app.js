@@ -18,11 +18,16 @@ const client = (() => {
   } else {
       return new Client({
           connectionString: process.env.DATABASE_URL,
-          ssl: {
-              rejectUnauthorized: false
-            }
+          ssl: false
+          //ssl: {rejectUnauthorized: false}
       });
   } })();
+
+
+/*const client = new Client({
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres://u724pr3kon35lj:pdc7baf32a7fb356338b919f91995eef15476787ff020e1ebde3f01945845357b@c2dr1dq7r4d57i.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/dahf5q0eco5cc7',
+  ssl: process.env.DATABASE_URL ? true : false
+})*/
 
 client.connect();
 
