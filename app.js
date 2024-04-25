@@ -18,8 +18,8 @@ const client = (() => {
   } else {
       return new Client({
           connectionString: process.env.DATABASE_URL,
-          ssl: false
-          //ssl: {rejectUnauthorized: false}
+          //ssl: false
+          ssl: {rejectUnauthorized: false}
       });
   } })();
 
