@@ -1,12 +1,28 @@
 //DB connection
 const { Client } = require('pg');
 
-const client = new Client({
+/* const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
-});
+});*/
+
+//fix ssl issue
+const client = (() => {
+  if (process.env.NODE_ENV !== 'production') {
+      return new Client({
+          connectionString: process.env.DATABASE_URL,
+          ssl: false
+      });
+  } else {
+      return new Client({
+          connectionString: process.env.DATABASE_URL,
+          ssl: {
+              rejectUnauthorized: false
+            }
+      });
+  } })();
 
 client.connect();
 
