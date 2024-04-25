@@ -1,4 +1,12 @@
-const express = require('express');
+const { sequelize } = require('./models')
+
+async function main(){
+  await sequelize.sync()
+}
+
+main()
+
+/* const express = require('express');
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
@@ -14,5 +22,6 @@ app.post('/url', function(req, res) {
 //app.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
 
 app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  console.log("Express server listening on port %d in %s mode %s", this.address().port, app.settings.env);
 });
+*/

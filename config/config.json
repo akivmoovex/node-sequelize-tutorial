@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "akivsolomon",
+    "password": null,
+    "database": "node_sequelize_tutorial",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "u724pr3kon35lj",
+    "password": "pdc7baf32a7fb356338b919f91995eef15476787ff020e1ebde3f01945845357b",
+    "database": "dahf5q0eco5cc7",
+    "host": "c2dr1dq7r4d57i.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "u724pr3kon35lj",
+    "password": "pdc7baf32a7fb356338b919f91995eef15476787ff020e1ebde3f01945845357b",
+    "database": "dahf5q0eco5cc7",
+    "host": "c2dr1dq7r4d57i.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com",
+    "dialect": "postgres"
+  }
+}
