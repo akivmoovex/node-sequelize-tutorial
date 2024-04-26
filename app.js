@@ -3,7 +3,7 @@ const { Client } = require('pg');
 
 //fix ssl issue
 const client = (() => {
-  if (process.env.NODE_ENV == 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     console.log("Local, process.env.DATABASE_URL == %s", process.env.DATABASE_URL);
       return new Client({
           connectionString: process.env.DATABASE_URL,
