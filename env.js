@@ -1,0 +1,1 @@
+const DATABASE_URL = "postgres://onkmhyspvtvmya:297457472f058584f83f1f9ca1fb8945c1e8d92522c86c533f275f2089f0140c@ec2-54-73-22-169.eu-west-1.compute.amazonaws.com:5432/d4pvhflh0n0nhg";
