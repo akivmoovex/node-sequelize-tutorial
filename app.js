@@ -4,13 +4,13 @@ const { Client } = require('pg');
 //fix ssl issue
 const client = (() => {
   if (process.env.NODE_ENV !== 'production') {
-    console.log("process.env.DATABASE_URL == %s", process.env.DATABASE_URL);
+    console.log("Local, process.env.DATABASE_URL == %s", process.env.DATABASE_URL);
       return new Client({
           connectionString: process.env.DATABASE_URL,
           ssl: false
       });
   } else { //production
-      console.log("process.env.DATABASE_URL == %s", process.env.DATABASE_URL);
+      console.log("Production, process.env.DATABASE_URL == %s", process.env.DATABASE_URL);
       return new Client({
           connectionString: process.env.DATABASE_URL,
           ssl: {
@@ -18,6 +18,7 @@ const client = (() => {
           }
       });
   }})();
+
 
 client.connect();
 
@@ -57,6 +58,6 @@ app.post('/url', function(req, res) {
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   console.log("DB connection string %s", process.env.DATABASE_URL)
-  console.log("client.DATABASE_URL is %s", client.DATABASE_URL);
+  console.log("app.DATABASE_URL is %s", app.DATABASE_URL);
 
 });
