@@ -15,12 +15,14 @@ const client = (() => {
           connectionString: process.env.DATABASE_URL,
           ssl: false
       });
-  } else {
+  } else { //production
       return new Client({
           connectionString: process.env.DATABASE_URL,
-          ssl: {rejectUnauthorized: false}
+          ssl: {
+            rejectUnauthorized: false
+          }
       });
-  } })();
+  }})();
 
 client.connect();
 
@@ -59,4 +61,7 @@ app.post('/url', function(req, res) {
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  console.log("DB connection string %s", process.env.DATABASE_URL)
+  console.log("client.DATABASE_URL is %s", client.DATABASE_URL);
+
 });
